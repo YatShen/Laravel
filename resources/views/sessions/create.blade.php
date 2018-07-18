@@ -2,12 +2,12 @@
 @section('title', '登录')
 
 @section('content')
-    <div class="col-md-offset-2 col-md-8">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+    <div class="offset-md-2 col-md-8">
+        <div class="card">
+            <div class="card-header">
                 <h5>登录</h5>
             </div>
-            <div class="panel-body">
+            <div class="card-body">
                 @include('shared._errors')
 
                 <form action="{{ route('login') }}" method="post">
