@@ -110,11 +110,13 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
+        $from = env('MAIL_FROM_ADDRESS');
+        $name = env('MAIL_FROM_NAME');
         $to = $user->email;
         $subject = '感谢注册 YatShen 应用！请确认你的邮箱。';
 
         Mail::send($view, $data, function($message) use ($from, $name, $to, $subject){
-            $message->to($to)->subject($subject);
+            $message->from($from, $name)->to($to)->subject($subject);
         });
     }
 }
