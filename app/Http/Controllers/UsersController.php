@@ -12,12 +12,12 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        // auth -- 允许登录用户访问
+        // auth -- 只允许登录用户访问
         $this->middleware('auth', [
             'except' => ['show', 'create', 'store', 'index', 'confirmEmail']
         ]);
 
-        // guest -- 允许未登录用户访问
+        // guest -- 只允许未登录用户访问
         $this->middleware('guest', [
             'only' => ['create']
         ]);
